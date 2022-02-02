@@ -4,27 +4,29 @@
         this.lenght = 0;
         this.data = {};
     }
-
+    //Obetene cierto elemento
     get(index){
         return this.data[index];
     }
+    //Elemento al final del arreglo
     push(item){
         this.data[this.lenght] = item;
         this.lenght++;
         return this.data;
     }
+    //Borrar ultimo elemento
     pop(){
         const lastitem = this.data[this.lenght-1];
         delete this.data[this.lenght-1]
         this.lenght--;
         return lastitem;
     }
+    //Borrar el elemento deseado
     delete(index){
         const item = this.data[index];
         this.shiftIndex(index);
         return item
     }
-
     //Metodo para correr los objetos una posicion atras
     //Cuando borramos elementos
     shiftIndex(index){
@@ -37,7 +39,7 @@
         //Arreglando
         this.lenght--;
     }
-
+    //Agregar un elemento al inicio del arreglo
     unshift(item){
         let aux = this.data[0];
         for(let i=0; i<this.lenght;i++){
@@ -48,7 +50,44 @@
         this.data[0] = item;
         this.lenght++;
         return this.lenght;
+    }
+    //Borrar el primer elemento del arreglo
+    shift(){
+        const item = this.data[0];
+        this.shiftIndex(0);
+        return item;
+    }
+    indexOff(item){
+        for(let i = 0; i<this.lenght; i++){
+            if(item === this.data[i]){
+                return i;
+            }
+        }
+    }
+}   
 
+class HashTable {
+    constructor(size) {
+        this.data = new Array(size);
+    }
+
+    hasMethod(key) {
+        let hash = 0;
+        for (let i = 0; i < key.lenght; i++) {
+            hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+        }
+        return hash;
+    }
+
+    set(key,value){
+        const adress = this.hasMethod(key);
+        if(!this.data[adress]){
+            this.data[adress] = [];
+        }
+        this.data[adress].push([key,value]);
+        return this.data;
     }
 }
+
+const myHashTable = new HashTable(50);
 const arreglo = new MyArr();
