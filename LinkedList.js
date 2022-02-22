@@ -37,5 +37,17 @@ class SinglyLinkedList {
         this.tail = newNodo;
         this.lenght++;
     }
+
+    prepend(value){
+
+    }
+
+    insert(value){
+
+    }
+
+    delete(value){
+
+    }
 }
 let myLinkedList = new SinglyLinkedList(1);
