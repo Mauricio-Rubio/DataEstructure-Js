@@ -49,5 +49,9 @@ class SinglyLinkedList {
     delete(value){
 
     }
+
+    search(value){
+        
+    }
 }
 let myLinkedList = new SinglyLinkedList(1);
