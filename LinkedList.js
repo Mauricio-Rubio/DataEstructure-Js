@@ -31,7 +31,7 @@ class SinglyLinkedList {
         this.lenght = 1;
     }
 
-    append(value){
+    append(value) {
         const newNodo = new nodo(value);
         this.tail.next = newNodo;
         this.tail = newNodo;
