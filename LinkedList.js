@@ -1,5 +1,6 @@
-//1 -- > 2 -- > 3 -- > 4 -- > 5 -- > null
 
+/*
+*This is how a singly linked list looks
 let singleLList = {
     head: {
         value: 1,
@@ -14,7 +15,7 @@ let singleLList = {
             }
         }
     }
-}
+}*/
 
 class nodo {
     constructor(value) {
@@ -35,14 +36,6 @@ class SinglyLinkedList {
         this.tail.next = newNodo;
         this.tail = newNodo;
         this.lenght++;
-        /*if(this.head.next == null){
-            console.log("Condition passed");
-            this.head.next = new nodo(value);
-            this.lenght++;
-        }*/
     }
 }
-
-
-
 let myLinkedList = new SinglyLinkedList(1);
